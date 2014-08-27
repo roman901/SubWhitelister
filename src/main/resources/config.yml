@@ -1,3 +1,4 @@
+enabled: true
 whitelist:
   # the delay, in seconds, between the updating of the remote whitelist.
   delay: 60
