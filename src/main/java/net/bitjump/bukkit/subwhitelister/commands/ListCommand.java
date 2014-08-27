@@ -16,7 +16,7 @@ public class ListCommand extends Subcommand
 	public void perform()
 	{	
 		String mess = "Users: ";
-		mess += StringUtils.join(WhitelistManager.getUsers(), ",");
+		mess += StringUtils.join(WhitelistManager.getUsers(), ", ");
 		
 		sender.sendMessage(mess);
 	}
