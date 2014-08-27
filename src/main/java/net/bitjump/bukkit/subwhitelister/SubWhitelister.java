@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import net.bitjump.bukkit.subwhitelister.commands.*;
 import net.bitjump.bukkit.subwhitelister.listeners.PlayerListener;
 import net.bitjump.bukkit.subwhitelister.util.ConfigManager;
+import net.bitjump.bukkit.subwhitelister.util.WhitelistManager;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -37,6 +38,7 @@ public class SubWhitelister extends JavaPlugin
 		version = pdf.getVersion();
 		author = pdf.getAuthors().get(0);
 		
+		ConfigManager.setup(this);
 		config = ConfigManager.setupConfig();
 		
 		log.info("Setting up commands...");
@@ -49,6 +51,8 @@ public class SubWhitelister extends JavaPlugin
 		
 		log.info("Setting up listeners...");
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+		
+		WhitelistManager.initialize();
 		
 		instance = this;
 	}

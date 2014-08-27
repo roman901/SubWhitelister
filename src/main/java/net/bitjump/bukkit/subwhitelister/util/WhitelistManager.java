@@ -14,7 +14,7 @@ public class WhitelistManager
 {
 	private static final HashSet<String> users = new HashSet<String>();
 	
-	public WhitelistManager()
+	public static void initialize()
 	{
 		Bukkit.getScheduler().runTaskTimerAsynchronously(SubWhitelister.instance, new Runnable()
 		{

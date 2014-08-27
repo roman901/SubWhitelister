@@ -16,7 +16,7 @@ public class ConfigManager
 	private static JavaPlugin p;
 	private static final HashMap<String, FileConfiguration> configs = new HashMap<String, FileConfiguration>();
 	
-	public ConfigManager(JavaPlugin p)
+	public static void setup(JavaPlugin p)
 	{
 		ConfigManager.p = p;
 	}
