@@ -52,9 +52,9 @@ public class SubWhitelister extends JavaPlugin
 		log.info("Setting up listeners...");
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 		
-		WhitelistManager.initialize();
-		
 		instance = this;
+		
+		WhitelistManager.initialize();
 	}
 	
 	public void onDisable()
