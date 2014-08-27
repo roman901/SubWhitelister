@@ -1,5 +1,5 @@
 name: ${project.name}
-main: net.bitjump.bukkit.subwhitelister.subwhitelister
+main: net.bitjump.bukkit.subwhitelister.SubWhitelister
 version: ${project.version}
 author: Bitjump
 commands:
