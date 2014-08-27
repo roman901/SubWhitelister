@@ -37,7 +37,7 @@ public class WhitelistManager
 		{		
 			try 
 			{
-				BufferedReader in = new BufferedReader(new InputStreamReader(new URL(s).openStream()));
+				BufferedReader in = new BufferedReader(new InputStreamReader(new URL("http://whitelist.twitchapps.com/list.php?id=" + s).openStream()));
 				String l;
 				
 				while ((l = in.readLine()) != null)
