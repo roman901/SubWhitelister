@@ -2,6 +2,7 @@ package net.bitjump.bukkit.subwhitelister;
 
 import java.util.logging.Logger;
 
+import net.bitjump.bukkit.subwhitelister.commands.*;
 import net.bitjump.bukkit.subwhitelister.listeners.PlayerListener;
 import net.bitjump.bukkit.subwhitelister.util.ConfigManager;
 
@@ -22,6 +23,8 @@ public class SubWhitelister extends JavaPlugin
 	public static String version;
 	public static String author;
 	
+	public static CommandManager cm;
+	
 	public void onEnable()
 	{
 		log = getLogger();
@@ -37,6 +40,12 @@ public class SubWhitelister extends JavaPlugin
 		config = ConfigManager.setupConfig();
 		
 		log.info("Setting up commands...");
+		cm = new CommandManager(this);
+		cm.setCommandPrefix("sw");
+		cm.registerCommand(new ListCommand());
+		cm.registerCommand(new ReloadCommand());
+		cm.registerCommand(new ToggleCommand());
+		
 		
 		log.info("Setting up listeners...");
 		getServer().getPluginManager().registerEvents(new PlayerListener(), this);
