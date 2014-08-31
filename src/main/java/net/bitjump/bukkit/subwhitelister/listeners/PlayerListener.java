@@ -20,7 +20,7 @@ public class PlayerListener implements Listener
 		
 		if(!p.hasPermission("subwhitelister.exempt"))
 		{
-			if(!WhitelistManager.getUsers().contains(p.getName()))
+			if(!WhitelistManager.getUsers().contains(p.getName().toLowerCase()))
 			{
 				e.disallow(Result.KICK_WHITELIST, "Not on the whitelist.");
 			}

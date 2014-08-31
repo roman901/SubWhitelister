@@ -42,7 +42,7 @@ public class WhitelistManager
 				
 				while ((l = in.readLine()) != null)
 				{
-					users.add(l.trim());
+					users.add(l.trim().toLowerCase());
 				}
 			} 
 			catch (IOException e) 
