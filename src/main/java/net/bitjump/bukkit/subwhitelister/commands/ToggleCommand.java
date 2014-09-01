@@ -17,7 +17,9 @@ public class ToggleCommand extends Subcommand
 		boolean b = SubWhitelister.config.getBoolean("enabled");
 		b ^= true;
 		
-		sender.sendMessage("Remote whitelist " + (b ? " enabled!" : " disabled!"));
+		sender.sendMessage("Remote whitelist " + (b ? "enabled!" : "disabled!"));
+		
+		SubWhitelister.config.set("enabled", b);
 		ConfigManager.saveConfig("config.yml");
 	}
 
