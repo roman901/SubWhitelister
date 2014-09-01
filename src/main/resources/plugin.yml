@@ -16,9 +16,12 @@ permissions:
     subwhitelister.commands.*:
         default: false
         children:
+            subwhitelister.commands.export: true
             subwhitelister.commands.list: true
             subwhitelister.commands.reload: true
             subwhitelister.commands.toggle: true
+    subwhitelister.commands.export:
+        default: false       
     subwhitelister.commands.list:
         default: false
     subwhitelister.commands.reload:
