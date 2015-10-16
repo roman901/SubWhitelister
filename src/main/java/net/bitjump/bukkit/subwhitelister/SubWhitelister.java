@@ -15,7 +15,7 @@ public class SubWhitelister extends JavaPlugin
 {
 	public static JavaPlugin instance;
 	
-	private Logger log;
+	private static Logger log;
 
 	public static FileConfiguration config;
 	public static PluginDescriptionFile pdf;
@@ -61,5 +61,10 @@ public class SubWhitelister extends JavaPlugin
 	public void onDisable()
 	{
 		
+	}
+
+	public static Logger getLog()
+	{
+		return log;
 	}
 }
