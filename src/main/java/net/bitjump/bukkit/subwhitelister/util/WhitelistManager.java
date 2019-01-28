@@ -33,37 +33,34 @@ public class WhitelistManager
 	
 	public static void updateRemoteWhitelists()
 	{
-		for(String s : SubWhitelister.config.getStringList("whitelist.urls"))
+		BufferedReader in = null;
+		try
 		{
-			BufferedReader in = null;
-			try 
+			in = new BufferedReader(new InputStreamReader(new URL(SubWhitelister.config.getString("whitelist.url")).openStream()));
+			String l;
+
+			while ((l = in.readLine()) != null)
 			{
-				in = new BufferedReader(new InputStreamReader(new URL("http://whitelist.twitchapps.com/list.php?id=" + s).openStream()));
-				String l;
-				
-				while ((l = in.readLine()) != null)
+				users.add(l.trim().toLowerCase());
+			}
+		}
+		catch (IOException e)
+		{
+			SubWhitelister.getLog().severe("[SubWhitelister] Uh oh. The website could be down. We'll keep trying.");
+			SubWhitelister.getLog().severe("[SubWhitelister] Give the following crash log to @Bitjump_ for diagnostics!");
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(in != null)
+			{
+				try
 				{
-					users.add(l.trim().toLowerCase());
+					in.close();
 				}
-			}
-			catch (IOException e)
-			{
-				SubWhitelister.getLog().severe("[SubWhitelister] Uh oh. The website could be down. We'll keep trying.");
-				SubWhitelister.getLog().severe("[SubWhitelister] Give the following crash log to @Bitjump_ for diagnostics!");
-				e.printStackTrace();
-			}
-			finally
-			{
-				if(in != null)
+				catch(IOException e)
 				{
-					try
-					{
-						in.close();
-					}
-					catch(IOException e)
-					{
-						e.printStackTrace();
-					}
+					e.printStackTrace();
 				}
 			}
 		}

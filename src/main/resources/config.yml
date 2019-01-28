@@ -2,6 +2,5 @@ enabled: true
 whitelist:
   # the delay, in seconds, between the updating of the remote whitelist.
   delay: 60
-  # The unique IDs of the whitelists to pull from.
-  urls:
-  - replace_me
+  # URL where whitelist placed
+  url: replace_me
