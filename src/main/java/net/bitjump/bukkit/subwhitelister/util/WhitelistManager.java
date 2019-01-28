@@ -5,11 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 import org.bukkit.Bukkit;
 
 import net.bitjump.bukkit.subwhitelister.SubWhitelister;
+import org.bukkit.entity.Player;
 
 public class WhitelistManager 
 {
@@ -61,6 +64,14 @@ public class WhitelistManager
 				catch(IOException e)
 				{
 					e.printStackTrace();
+				}
+			}
+
+			if(SubWhitelister.config.getBoolean("enabled")) {
+				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+					if (!users.contains(p.getName()) && !p.hasPermission("subwhitelister.exempt")) {
+						p.kickPlayer("Вы больше не в вайтлисте!");
+					}
 				}
 			}
 		}

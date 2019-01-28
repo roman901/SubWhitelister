@@ -22,7 +22,7 @@ public class PlayerListener implements Listener
 		{
 			if(!WhitelistManager.getUsers().contains(p.getName().toLowerCase()))
 			{
-				e.disallow(Result.KICK_WHITELIST, "Not on the whitelist.");
+				e.disallow(Result.KICK_WHITELIST, "Вы не в вайтлисте!");
 			}
 		}
 	}
