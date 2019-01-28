@@ -68,9 +68,13 @@ public class WhitelistManager
 			}
 
 			if(SubWhitelister.config.getBoolean("enabled")) {
-				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-					if (!users.contains(p.getName()) && !p.hasPermission("subwhitelister.exempt")) {
-						p.kickPlayer("Вы больше не в вайтлисте!");
+				for (final Player p : Bukkit.getServer().getOnlinePlayers()) {
+					if (!users.contains(p.getName().toLowerCase()) && !p.hasPermission("subwhitelister.exempt")) {
+						Bukkit.getScheduler().runTask(SubWhitelister.instance, new Runnable() {
+							public void run() {
+								p.kickPlayer("Вы больше не в вайтлисте!");
+							}
+						});
 					}
 				}
 			}
