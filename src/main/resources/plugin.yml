@@ -2,6 +2,7 @@ name: ${project.name}
 main: net.bitjump.bukkit.subwhitelister.SubWhitelister
 version: ${project.version}
 author: Bitjump
+api-version: "1.12"
 commands:
     sw:
         description: The SubWhitelister master command.
